@@ -1,0 +1,234 @@
+/*Extract
+___________*/
+
+
+#extract{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -3rem;
+}
+
+
+#extract .card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: var(--blue-ligth);
+    padding: 2rem 1rem;
+    transition: all 0.2s;
+}
+
+#extract .card:last-child{
+    flex-direction: row-reverse;  
+}
+
+#extract .card.income{
+    border-radius: 0 1rem 0 0;
+}
+
+#extract .card.expenses{
+    border-radius: 1rem 0 0 0;
+}
+
+#extract .card.total{
+    border-radius: 0 0 1rem 1rem;
+}
+
+#extract .card.income:before {
+    content: ' '; 
+    position:absolute;   
+    width: .25rem;
+    height: 0%;
+    background-color:var(--green);
+    border-radius: .313rem 0 0 .313rem; 
+    transition: all .2s;
+    top:0;
+    left: 0;
+}
+
+#extract .card.expenses:after {
+    content: ' '; 
+    position:absolute;   
+    width: .25rem;
+    height: 0%;
+    background-color: red;  
+    border-radius: .313rem 0 0 .313rem;  
+    transition: all .2s;
+    top:0;
+    right:0;
+}
+
+#extract .card.total:before {
+    content: ' '; 
+    position:absolute;   
+    width: 0%;
+    height: .25rem;
+    background-color: blue;  
+    border-radius: .313rem 0 0 .313rem;  
+    transition: all .2s;
+    top:0;
+    left: 0;
+}
+
+#extract .card.income:hover:before {
+    height:100%;
+}
+
+#extract .card.expenses:hover::after {
+    height:100%;
+}
+
+#extract .card.total:hover::before {
+    width:100%;
+}
+
+#extract .card:hover{
+    background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+    white;
+}
+
+
+.card.income i{
+    color:var(--green);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.income p{
+    color:var(--green);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+.card.expenses i{
+    color:var(--red);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.expenses p{
+    color:var(--red);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+.card.total i{
+    color:var(--blue);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.total p{
+    color:var(--blue);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+
+/* Reponsavidade
+___________________*/  
+
+
+@media(max-width:700px){
+    
+    
+    /*Extrato
+    ______________*/
+
+    #extract{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -3rem;
+    }
+
+
+    #extract .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        background: var(--blue-ligth);
+        padding: 2rem 1rem;
+        transition: all 0.2s;
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    #extract .card:last-child{
+        flex-direction: row;  
+    }
+
+    #extract .card.order-1{
+        border-radius: 0 1rem 0 0;
+        order: 1;
+    }
+
+    #extract .card.order-2{
+        border-radius: 0 0 1rem 0;
+        order: 3;
+    }
+
+    #extract .card.order-3{
+        order: 2;
+    }
+
+    #extract .card.income:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--green);;  
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.expenses:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: var(--red);  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left:0;
+    }
+
+    #extract .card.total:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: var(--blue);;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.income:hover:before {
+        height:100%;
+    }
+
+    #extract .card.expenses:hover:before {
+        height:100%;
+    }
+
+    #extract .card.total:hover:before {
+        height:100%;
+    }
+
+    #extract .card:hover{
+        background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+        white;
+    }
+}

@@ -1,0 +1,207 @@
+.container-login {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.logo-group {
+    display: inline;
+    border-bottom: 1px solid var(--brown);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+#logo{
+    width: 10vw;
+}
+
+.open-account{
+    text-align: center;
+    background-color: var(--purple);
+}
+
+.account-group{
+    margin-top: 1rem;
+}
+
+
+.account-group a{
+    position: relative;
+    display: inline;
+    background:var(--brown);
+    color:var(--orange-ligth);
+    text-decoration: none;
+    padding: 0.5rem;
+    top:8rem;
+}
+
+/* Formulário 
+_______________*/
+
+.authentication{
+    display: grid;
+    grid-template-columns: 100%;    
+}
+
+.grid-return{
+    grid-row: 1;
+    grid-column: 1;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.grid-form{
+    grid-row: 2;
+    grid-column: 1;
+    align-self: flex-start;
+    justify-self: center;
+}
+
+
+.button-group .button{
+    display: block;
+    padding: 0.6rem;
+    border:none;
+    background-color: var(--green);
+    color: var(--blue-ligth);
+    width: 100%;
+}
+
+.open-account .mobile{
+    display: none;
+}
+
+
+/* Alerta
+_____________*/
+
+#alert-email, .alert{
+    position: absolute;
+    margin-top: 3rem;
+    margin-left: 25%;
+    color: red;
+    font-size: 0.8rem;;
+}
+
+@media(max-width:700px){
+
+    #logo{
+        width: 20vw;
+    }
+    
+    
+    .container-login {
+        width: 90vw;
+        height: 100vh;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .cabecalho{
+        position:static;
+        padding: 0.25rem;
+        display: block;
+        height: 4.2rem;
+        width: 100vw;
+        background-color: var(--purple);
+        z-index: 5;
+        
+    }
+
+    .cabecalho label{
+        display: block;
+        position: absolute;
+        top:0.2rem;
+        left:5rem;
+        width: 30vw;
+        color: white;
+        cursor: pointer;
+    }
+
+    .open-account{
+        visibility:hidden;
+        height: 0vh;
+        width: 90vw;
+        position: absolute;   
+        align-items: center;
+     
+        background-color: var(--orange-ligth);
+    }
+
+    #form-register-login{
+        display: none;
+  
+    }
+
+    .button-google{
+        display: none;
+    }
+
+    .open-account.active{
+        height: 100vh;
+        visibility:visible;        
+    }
+
+    .open-account.active #form-register-login{
+       display: block; 
+    }
+
+    .open-account.active  .button-google{
+        display: block; 
+    }
+
+    .open-account .mobile{
+        display: block;
+    }
+
+    .account-group {
+        display: none;
+    }
+
+
+    /* Form de cadastro de usuário
+    ___________________________________*/
+
+    .form-group {
+        width: 100%;
+    }
+    .form-register-login{
+        width: 90%;
+    }
+
+    #form-register-login{
+        width:100%;
+    }
+
+    #form-register-login .input-group{
+        width:80%;
+    }
+    #form-register-login input{
+        width:100%;
+    }
+
+    #form-register-login label{
+        width:50%;
+
+    }
+
+    #form-register-login span{
+        margin-right: 0;
+    }
+
+    .button-google{
+        padding: 0.25rem;
+        background-color: #d23c2e;
+        color: white;
+        border: none;
+        margin:1rem;
+    }
+
+    .button-google i{
+        padding: 0.25rem;
+    }
+
+}
+

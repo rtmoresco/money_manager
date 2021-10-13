@@ -1,0 +1,258 @@
+/* Transaction
+________________*/
+
+#transaction{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#transaction .add{
+    background:var(--brown);
+    color:var(--orange-ligth);
+    float:right;
+    border:none!important;
+    border-radius: 0.15rem;
+    text-decoration: none;
+}
+
+
+/* Titulo
+____________*/
+
+#transaction h2{
+    text-align: center;
+    color: var(--purple) ;
+}
+
+.group-month-year{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.group-month-year i{
+    color:var(--brown);
+}
+
+.month-year{
+    margin: 1rem 0 1rem 0;
+    color:var(--brown);
+    margin-left: 1rem;
+}
+
+/* Cartoes
+___________*/
+
+#transaction .cards{
+    padding: 1rem;
+    background: var(--blue-ligth);
+}
+
+#transaction .cards.hide{
+    display: none;
+}
+
+#transaction .card{
+    padding: 0.10rem 0.35rem 0.10rem 0.35rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--greenish-blue);
+    position: relative;
+}
+
+#transaction .card:hover{
+    background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+    white;
+}
+
+#transaction .card.income-transaction:before {
+    content: ' '; 
+    position:absolute;   
+    width: .25rem;
+    height: 0%;
+    background-color:var(--green);
+    border-radius: .313rem 0 0 .313rem; 
+    transition: all .2s;
+    top:0;
+    left: 0;
+}
+
+#transaction .card.income-transaction:hover:before {
+    height:100%;
+}
+
+#transaction .card.expenses-transaction:before {
+    content: ' '; 
+    position:absolute;   
+    width: .25rem;
+    height: 0%;
+    background-color:var(--red);
+    border-radius: .313rem 0 0 .313rem; 
+    transition: all .2s;
+    top:0;
+    left: 0;
+}
+
+#transaction .card.expenses-transaction:hover:before {
+    height:100%;
+}
+
+
+#transaction .card-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#transaction .card-item .group{
+    margin: 1rem 0 1rem 0;
+}
+
+#transaction .card .description{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#transaction .card-item i{
+    font-size: 1.5rem;
+}
+
+#transaction .card.income-transaction .description{
+    color: var(--green);
+}
+
+#transaction .card.income-transaction .group{
+    color: var(--green);
+}
+
+#transaction .card.expenses-transaction .description{
+    color: var(--red);
+}
+
+#transaction .card.expenses-transaction .group{
+    color: var(--red);
+}
+
+
+/* Acoes botao transaction
+_______________________________*/
+
+    #transaction .add span{
+        padding-right: 0.5rem;
+    }
+
+    #transaction .add i{
+        margin-right:1rem;
+    }
+
+    #transaction .add i{
+        font-weight: 600;
+        padding: 0.80rem;
+        background: #636156;
+    }
+
+    #transaction .group i{
+        padding-left: 1rem;
+    }
+
+    #transaction .group p, .group spam{
+        padding: 1rem;
+    }
+
+    #transaction .actions .delete i{
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(--red);
+        border-radius: 0.20rem;
+    }
+
+    #transaction .actions .edit{
+        font-size: 1.5rem;
+        padding: 0.20rem 0.25rem 0.20rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(var(--purple-ligth));
+        text-decoration: none;
+        border-radius: 0.20rem;
+        border:1px solid gray;
+        margin-right: 1rem;
+    }
+
+    #transaction .actions p{
+        color: var(--blue);
+        font-weight: 600;
+    }
+
+
+@media(max-width:700px){
+     
+    /* Acoes botao transaction
+    _______________________________*/
+
+    #transaction .add i{
+        font-weight: 600;
+        padding: 0.70rem;
+        background: var(--brown-ligth);
+        margin: auto;
+    }
+
+    #transaction .add span{
+        display: none;
+    }
+
+    #transaction .actions .delete i{
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(--red);
+        border-radius: 0.20rem;
+    }
+
+    #transaction .actions .edit{
+        font-size: 1rem;
+        padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(var(--purple-ligth));
+        text-decoration: none;
+        border-radius: 0.20rem;
+        border:1px solid gray;
+        margin-right: 0.5rem;
+    }
+
+    #transaction .actions p{
+        color: var(--blue);
+        font-weight: 600;
+    }
+}
+
+
+@media(max-width:450px){
+
+    #transaction .actions .delete {
+        border:none;       
+        color:var(--red);
+    }
+
+    #transaction .actions .edit{
+        font-size: 0.5rem;
+        color:var(--purple-ligth);
+        text-decoration: none;
+        border:none;
+        margin-bottom: 1rem;
+    }
+
+    #transaction .actions .edit:after{
+        content: " ";
+        display:block;
+        position: relative;
+        width: 100%;
+        padding-top: 0.8rem;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid black;
+    }
+    
+
+    #transaction .actions .edit i,  #transaction .actions .delete i{
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Money Manager</title>
+        <link rel="stylesheet" href="style\general.css"/>
+        <link rel="stylesheet" href="style\extract.css"/>
+        <link rel="stylesheet" href="style\transaction.css"/>
+        <link rel="stylesheet" href="partials\modal.css"/>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" 
+        rel="stylesheet">
+        <link rel="stylesheet" href="icon\css\font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="container-menu">
+                <img id="logo" class="column grid-mobile-1" src="images\logo.png" alt="Logo Money Manager">
+                <h1 class="sr-only">Money Manager</h1>  
+                
+            
+                <div class="nav-icon grid-mobile-2">
+                    <div></div>
+                </div>
+
+                <ul class="menu column grid-mobile-4">
+                    <li class="item">
+                        <a href="#" class="link-section desactive">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <spam>
+                                Home
+                            </spam>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="/" class="link-section desactive">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <spam>
+                                Transações
+                            </spam>                            
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#" class="link-section desactive">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            <spam>
+                                Gráfico
+                            </spam>                            
+                        </a>
+                    </li>
+                </ul>   
+                
+                <div class="login column grid-mobile-3">
+                      <a class="" href="/login"> Login </a>                                   
+                </div>
+        
+        </header>
+        <main class="container">
+            <section id="extract">                
+                <h2 class="sr-only">Extrato</h2>
+
+                <div class="card income order-1">
+                    <span class="sr-only">
+                        Receita
+                    </span>
+                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                    <p class="">
+                        R$ <%= extract.income %>
+                    </p>
+                </div>              
+                <div class="card total order-2">
+                    <span class="sr-only">
+                        Saldo
+                    </span>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                    <p class="">
+                        R$ 200000000
+                    </p>
+                </div> 
+                <div class="card expenses order-3">
+                    <span class="sr-only">
+                        Despesas
+                    </span>
+                    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                    <p class="">
+                        R$ <%= extract.expenses %>
+                    </p>
+                </div>  
+            </section>
+            <section id="transaction">
+
+                <h2>Transações</h2>
+
+                <a class="add" href="register">
+                    <i class="fa fa-plus" aria-hidden="true"></i><span>Adicionar Valor</span>
+                </a>
+                <% transactions.forEach((transactionPerMonth, index) => { %>
+                <div class="group-month-year">
+                    <!--<i class="fa fa-plus-square" aria-hidden="true"></i>-->
+                    <i class="show-data fa fa-minus-square" aria-hidden="true"></i>
+                    <h3 class="month-year"><%= transactionPerMonth.date %></h3>
+                </div>
+                
+                    <ul class="cards"> 
+                        <% transactionPerMonth.list.forEach((transaction) => { %>
+                        
+                        <% if(transaction.type == "Receita"){%>
+                        <li class="card income-transaction ">
+                        <%}else{%>
+                        <li class="card expenses-transaction">
+                        <%}%>
+                            <div class="description">
+                                <%= transaction.description %>
+                            </div>
+                            <div class="card-item">
+                                <div class="group">
+                                    <% if(transaction.type == "Receita"){%>                 
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                    <%}else{%>
+                                    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                                    <%}%>
+                                    <p class="date"><%= transaction.date %></p>
+                                </div>
+                                <div class="group">
+                                    <spam>Valor</spam>
+                                    <p class="amount">R$ <%= transaction["value-transaction"] %></p>
+                                </div>    
+                                <div class="actions">
+                                    <p class="sr-only">Ações</p>
+                                    <a href="/edit/<%=transaction.id%>" class="edit" title="Editar">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <button class="delete" title="Excluir">
+                                        <input type="hidden" name="id" id="id" value="<%=transaction.id%>"/> 
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>  
+                            </div>                         
+                        </li>
+                        
+                        <!--<li class="card expenses-transaction">
+                            <div class="description">
+                                Carro
+                            </div>
+                            <div class="card-item">
+                                <div class="group">                 
+                                    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                                    <p class="date">09-07-2021</p>
+                                </div>
+                                <div class="group">
+                                    <spam>Valor</spam>
+                                    <p class="amount">- R$ 1000</p>
+                                </div>    
+                                <div class="actions">
+                                    <p class="sr-only">Ações</p>
+                                    <a href="edit" class="edit" title="Editar">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <button class="delete" title="Excluir">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>  
+                            </div>                         
+                        </li>-->
+                        <%}) %>
+
+                    </ul>
+                    
+
+                <% }) %>
+                <!--
+                <div class="group-month-year">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <i class="show-data fa fa-minus-square" aria-hidden="true"></i>
+                    <h3 class="month-year">Agosto - 2021</h3>
+                </div>
+
+                <ul class="cards">
+                    <li class="card income-transaction">
+                        <div class="description">
+                            Sálario
+                        </div>
+                        <div class="card-item">
+                            <div class="group date">                 
+                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                <p class="date">09-08-2021</p>
+                            </div>
+                            <div class="group">
+                                <spam>Valor</spam>
+                                <p class="amount">R$ 3000</p>
+                            </div>    
+                            <div class="actions">
+                                <p class="sr-only">Ações</p>
+                                <a href="edit" class="edit" title="Editar">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <button class="delete" title="Excluir">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </div>  
+                        </div>                         
+                    </li>
+                    <li class="card expenses-transaction">
+                        <div class="description">
+                            Carro
+                        </div>
+                        <div class="card-item">
+                            <div class="group">                 
+                                <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+                                <p class="date">09-08-2021</p>
+                            </div>
+                            <div class="group">
+                                <spam>Valor</spam>
+                                <p class="amount">- R$ 1000</p>
+                            </div>    
+                            <div class="actions">
+                                <p class="sr-only">Ações</p>
+                                <a href="edit" class="edit" title="Editar">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <button class="delete" title="Excluir">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </div>   
+                        </div>                         
+                    </li>
+                </ul>-->
+            </section> 
+            <section id="graphic">
+                <h2>Gráfico</h2>
+
+                <div>Meu Gráfico</div>
+            </section>
+            <footer>
+                Meu rodapé
+            </footer>   
+        </main>
+
+
+        <div id="modal-delete" class="modal modal-close">      
+            <div class="delete-modal">
+                <div class="modal-delete">
+                    <div class="delete-group">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <p>Tem certeza que deseja deletar esta transação ? </p>
+                        <form id="form-delete-transaction" class="form-delete" method="POST" action="/delete">  
+                            <input type="hidden" name="modalId" id="modalId"/>               
+                            <div class="button-group">
+                                <a href="#" class="btn-close" data-dismiss="modal">Cancelar</a>
+                                <button type="submit" form="form-delete-transaction" class="button"><span class="button__text">Delete</span></button>
+                            </div>
+                        </form>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="scripts/index.js" defer type="module"></script>
+        <script src="scripts/modal-delete.js" defer type="module"></script>
+    </body>   
+</html>

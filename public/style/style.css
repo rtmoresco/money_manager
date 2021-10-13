@@ -1,0 +1,757 @@
+/* Global
+______________________*/
+
+:root {
+    --greenish-blue: #0c5653;
+    --purple: #240A6E;   
+    --orange-ligth:#f8f0c9;
+    --blue-ligth:#e4f7f6;
+    --black:#000707;
+    --brown:#665C1D;
+    --brown-ligth:#636156;
+
+    --green:#0F6E3F;
+    --red:#7a0818;
+    --blue:#08127a;
+
+    --dark-green: #18631B;
+    
+    --light-green: #3dd705;
+    
+    --purple-ligth:#391e84;
+
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+body{
+    background:var(--orange-ligth);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.sr-only{
+    position: absolute;    
+    clip: rect(0, 0, 0, 0);
+}
+
+
+/* Mobile && Desktop
+________________________*/
+
+
+.login{ 
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 0 rgba(14, 103, 99, 1);
+    animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(14, 103, 99, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 20px rgba(14, 103, 99, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(14, 103, 99, 0);
+	}
+}
+
+.login > a{    
+    font-weight: 300;
+    color: #e4f7f6;
+}
+
+.menu .item, .login{
+    color: #e4f7f6;
+}
+
+.container-menu.register{
+    color:var(--orange-ligth);
+    padding: 0.5rem;
+}
+
+.container-menu.register .return{
+    text-decoration: none;
+    color:var(--orange-ligth);
+}
+
+.authentication .return{
+    color:var(--purple);
+}
+
+
+
+/*section
+____________*/
+
+.container {
+    width: min(90vw, 750px);
+    margin: auto;
+}
+
+/*Extract
+___________*/
+
+.card.income i{
+    color:var(--green);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.income p{
+    color:var(--green);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+.card.expenses i{
+    color:var(--red);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.expenses p{
+    color:var(--red);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+.card.total i{
+    color:var(--blue);
+    font-size: 40px;
+    margin: 1rem 0.5rem;
+}
+
+.card.total p{
+    color:var(--blue);
+    font-size: 25px;
+    margin: 0.25rem;
+}
+
+
+/* Transaction
+________________*/
+
+    #transaction{
+        width: 100%;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    #transaction .add{
+        background:var(--brown);
+        color:var(--orange-ligth);
+        float:right;
+        border:none!important;
+        border-radius: 0.15rem;
+    }
+
+    
+    /* Titulo
+    ____________*/
+
+    #transaction h2{
+        text-align: center;
+        color: var(--purple) ;
+    }
+
+    .group-month-year{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .group-month-year i{
+        color:var(--brown);
+    }
+
+    .month-year{
+        margin: 1rem 0 1rem 0;
+        color:var(--brown);
+        margin-left: 1rem;
+    }
+
+    /* Cartoes
+    ___________*/
+
+    #transaction .cards{
+        padding: 1rem;
+        background: var(--blue-ligth);
+    }
+
+    #transaction .cards.hide{
+        display: none;
+    }
+
+    #transaction .card{
+        padding: 0.10rem 0.35rem 0.10rem 0.35rem;
+        margin-top: 1rem;
+        border-bottom: 1px solid var(--greenish-blue);
+        position: relative;
+    }
+
+    #transaction .card:hover{
+        background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+        white;
+    }
+
+    #transaction .card.income-transaction:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--green);
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #transaction .card.income-transaction:hover:before {
+        height:100%;
+    }
+
+    #transaction .card.expenses-transaction:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--red);
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #transaction .card.expenses-transaction:hover:before {
+        height:100%;
+    }
+
+
+    #transaction .card-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #transaction .card-item .group{
+        margin: 1rem 0 1rem 0;
+    }
+
+    #transaction .card .description{
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    #transaction .card-item i{
+        font-size: 1.5rem;
+    }
+
+    #transaction .card.income-transaction .description{
+        color: var(--green);
+    }
+
+    #transaction .card.income-transaction .group{
+        color: var(--green);
+    }
+
+    #transaction .card.expenses-transaction .description{
+        color: var(--red);
+    }
+
+    #transaction .card.expenses-transaction .group{
+        color: var(--red);
+    }
+  
+
+
+
+/* Reponsavidade
+___________________*/
+
+@media(min-width:700px){
+
+    /* Cabecalho
+    ______________*/
+
+    #logo{
+        width: 10rem;
+    }
+
+    .container-menu{
+        width:100%;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        align-items: center;
+        justify-items: center;
+        padding: 2rem;
+        background-color: var(--purple);
+    }
+ 
+
+
+    /* Menu
+    _____________*/
+
+    .nav-icon{
+        display: none;
+    }
+
+    .menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .menu .item{
+        margin: 1rem;
+    }
+
+    .menu .link-section{
+        display: flex;
+        flex-wrap: wrap;   
+        text-decoration: none; 
+        color: var(--blue-ligth); 
+        padding-left: 0.10rem;
+        padding-right: 0.10rem;
+    }
+
+    .menu .link-section:hover{
+        color: var(--purple);
+        background-color: cadetblue;
+    }
+
+    .menu .link-section i, spam{
+        padding: 0.25rem;
+        font-weight: 500;
+        margin: auto;
+    }
+
+
+    /* Extrato
+    ________________*/
+    #extract{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: -3rem;
+    }
+
+
+    #extract .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        background: var(--blue-ligth);
+        padding: 2rem 1rem;
+        transition: all 0.2s;
+    }
+
+    #extract .card:last-child{
+        flex-direction: row-reverse;  
+    }
+
+    #extract .card.income{
+        border-radius: 0 1rem 0 0;
+    }
+
+    #extract .card.expenses{
+        border-radius: 1rem 0 0 0;
+    }
+
+    #extract .card.total{
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    #extract .card.income:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--green);
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.expenses:after {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: red;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        right:0;
+    }
+
+    #extract .card.total:before {
+        content: ' '; 
+        position:absolute;   
+        width: 0%;
+        height: .25rem;
+        background-color: blue;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.income:hover:before {
+        height:100%;
+    }
+
+    #extract .card.expenses:hover::after {
+        height:100%;
+    }
+
+    #extract .card.total:hover::before {
+        width:100%;
+    }
+
+    #extract .card:hover{
+        background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+        white;
+    }
+
+}
+
+
+@media(max-width:699.99px){
+
+    /*Cabecalho
+    ________________*/
+
+    #logo{
+        width: 5rem;
+    }
+
+    .container-menu{ 
+        margin:auto;
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        align-items: center;
+        justify-items: center;
+        background-color: var(--purple);
+    }
+
+    .container-menu.register{
+        color:var(--orange-ligth);
+        padding: 0.25rem;
+    }
+
+    .container-menu.register h3{
+        font-size: 0.80rem;;
+    }
+
+    
+    /* Menu Habumguer
+    ____________________*/
+
+    .nav-icon {
+        display: block;
+        margin: 1em;
+        width: 40px;
+    }
+
+    .grid-mobile-1{
+        grid-column: 1;
+        grid-row: 1;
+        
+    }
+
+    .grid-mobile-2{
+        grid-column: 2;
+        grid-row: 1;
+        right: 50vw;
+    }
+
+    .grid-mobile-3{
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .grid-mobile-4{
+        grid-column: 1 / span 3;
+        grid-row: 2;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .grid-mobile-4 .link-section.active{
+        display: block;
+    }
+
+    .grid-mobile-4 .link-section.desactive{
+        display: none;
+    }
+
+
+    .grid-mobile-4 .link-section.active{
+        text-decoration: none; 
+        color: var(--blue-ligth); 
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .grid-mobile-4 .link-section:hover{
+        color: var(--purple);
+        background-color: cadetblue;
+    }
+    
+    .grid-mobile-4 .link-section i, .link-section spam{
+        display: inline-block;
+        position:relative;
+        transform: translateX(43vw);
+        padding: 0.25rem;
+        margin: auto;
+        animation: translate 1.5s;
+    }
+
+    @keyframes translate {
+        0% {
+            transform: translateX(0vw);
+        }    
+        100% {
+            transform: translateX(43vw);
+        }
+    }
+    
+    .nav-icon:after, 
+    .nav-icon:before, 
+    .nav-icon div {
+        content: '';
+        background-color: #fff;
+        border-radius: 3px;
+        display: block;
+        height: 5px;
+        margin: 7px 0;
+        transition: all .2s ease-in-out;
+    }
+
+    
+
+    .nav-icon.active:before {
+        transform: translateY(12px) rotate(135deg);
+    }
+      
+    .nav-icon.active:after {
+        transform: translateY(-12px) rotate(-135deg);
+    }
+      
+    .nav-icon.active div {
+        transform: scale(0);
+    }
+
+
+    /*Extrato
+    ______________*/
+
+    #extract{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -3rem;
+    }
+
+
+    #extract .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        background: var(--blue-ligth);
+        padding: 2rem 1rem;
+        transition: all 0.2s;
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    #extract .card.order-1{
+        border-radius: 0 1rem 0 0;
+        order: 1;
+    }
+
+    #extract .card.order-2{
+        border-radius: 0 0 1rem 0;
+        order: 3;
+    }
+
+    #extract .card.order-3{
+        order: 2;
+    }
+
+    #extract .card.income:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--green);;  
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.expenses:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: var(--red);  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left:0;
+    }
+
+    #extract .card.total:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: var(--blue);;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+
+    #extract .card.income:hover:before {
+        height:100%;
+    }
+
+    #extract .card.expenses:hover:before {
+        height:100%;
+    }
+
+    #extract .card.total:hover:before {
+        height:100%;
+    }
+
+    #extract .card:hover{
+        background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
+        white;
+    }
+
+
+}
+
+
+
+
+/* Responsividade Transaction
+___________________________________*/
+
+@media(min-width:500px){
+    
+    /* Acoes botao transaction
+    _______________________________*/
+
+    #transaction .add span{
+        padding-right: 0.5rem;
+    }
+
+    #transaction .add i{
+        margin-right:1rem;
+    }
+
+    #transaction .add i{
+        font-weight: 600;
+        padding: 0.80rem;
+        background: #636156;
+    }
+
+    #transaction .group i{
+        padding-left: 1rem;
+    }
+
+    #transaction .group p, .group spam{
+        padding: 1rem;
+    }
+
+    #transaction .actions .delete i{
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(--red);
+        border-radius: 0.20rem;
+    }
+
+    #transaction .actions .edit{
+        font-size: 1.5rem;
+        padding: 0.20rem 0.25rem 0.20rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(var(--purple-ligth));
+        text-decoration: none;
+        border-radius: 0.20rem;
+        border:1px solid gray;
+        margin-right: 1rem;
+    }
+
+    #transaction .actions p{
+        color: var(--blue);
+        font-weight: 600;
+    }
+}
+
+@media(max-width:699.999px){
+     
+    /* Acoes botao transaction
+    _______________________________*/
+
+    #transaction .add i{
+        font-weight: 600;
+        padding: 0.70rem;
+        background: var(--brown-ligth);
+        margin: auto;
+    }
+
+    #transaction .add span{
+        display: none;
+    }
+
+    #transaction .actions .delete i{
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(--red);
+        border-radius: 0.20rem;
+    }
+
+    #transaction .actions .edit{
+        font-size: 1rem;
+        padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+        background-color:var(--blue-ligth);
+        color:var(var(--purple-ligth));
+        text-decoration: none;
+        border-radius: 0.20rem;
+        border:1px solid gray;
+        margin-right: 0.25rem;
+    }
+
+    #transaction .actions p{
+        color: var(--blue);
+        font-weight: 600;
+    }
+
+}
+
+  

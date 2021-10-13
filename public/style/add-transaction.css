@@ -1,0 +1,72 @@
+/* Pagina Adicionar transacao
+___________________________________*/
+
+.container-menu.register{
+    color:var(--orange-ligth);
+    padding: 0.5rem;
+}
+
+.container-menu.register .return{
+    text-decoration: none;
+    color:var(--orange-ligth);
+}
+
+
+.container.register{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+}
+
+#insert-transaction {
+    padding: 1rem;
+}
+
+.card-button{
+    padding: 5.7rem 1rem;
+    margin-top:1rem;
+    border:1px solid var(--purple);
+    background-color: var(--blue-ligth);
+    border-radius: 0 1rem 0 0;    
+    border:none;
+}
+
+
+.card-button .button{
+    display: inline-block;
+    padding: 0.6rem;
+    margin-right: 1rem;
+    border:none;
+    background-color: var(--green);
+    color: var(--blue-ligth);
+}
+
+.button-group{
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--dark-green);
+}
+
+.card-button .link-category{
+    display: inline-block;
+    padding: 0.5rem 0.2rem;
+    text-decoration: none;
+    background: #636156;
+    color:var(--blue-ligth);
+    cursor:pointer;
+
+}
+
+.input-group-alert{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.alert{
+    position:absolute;
+    margin-top:3rem;
+    color: red;
+    font-size: 0.8rem;
+}
