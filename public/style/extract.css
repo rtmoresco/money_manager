@@ -38,53 +38,7 @@ ___________*/
     border-radius: 0 0 1rem 1rem;
 }
 
-#extract .card.income:before {
-    content: ' '; 
-    position:absolute;   
-    width: .25rem;
-    height: 0%;
-    background-color:var(--green);
-    border-radius: .313rem 0 0 .313rem; 
-    transition: all .2s;
-    top:0;
-    left: 0;
-}
 
-#extract .card.expenses:after {
-    content: ' '; 
-    position:absolute;   
-    width: .25rem;
-    height: 0%;
-    background-color: red;  
-    border-radius: .313rem 0 0 .313rem;  
-    transition: all .2s;
-    top:0;
-    right:0;
-}
-
-#extract .card.total:before {
-    content: ' '; 
-    position:absolute;   
-    width: 0%;
-    height: .25rem;
-    background-color: blue;  
-    border-radius: .313rem 0 0 .313rem;  
-    transition: all .2s;
-    top:0;
-    left: 0;
-}
-
-#extract .card.income:hover:before {
-    height:100%;
-}
-
-#extract .card.expenses:hover::after {
-    height:100%;
-}
-
-#extract .card.total:hover::before {
-    width:100%;
-}
 
 #extract .card:hover{
     background:linear-gradient(90deg, rgba(250, 156, 45, 0.1) 0.45%, rgba(252, 253, 255, 0.1) 31.4%),
@@ -131,7 +85,55 @@ ___________*/
 
 /* Reponsavidade
 ___________________*/  
-
+@media(min-width: 700px){
+    #extract .card.income:before {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color:var(--green);
+        border-radius: .313rem 0 0 .313rem; 
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+    
+    #extract .card.expenses:after {
+        content: ' '; 
+        position:absolute;   
+        width: .25rem;
+        height: 0%;
+        background-color: red;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        right:0;
+    }
+    
+    #extract .card.total:before {
+        content: ' '; 
+        position:absolute;   
+        width: 0%;
+        height: .25rem;
+        background-color: blue;  
+        border-radius: .313rem 0 0 .313rem;  
+        transition: all .2s;
+        top:0;
+        left: 0;
+    }
+    
+    #extract .card.income:hover:before {
+        height:100%;
+    }
+    
+    #extract .card.expenses:hover::after {
+        height:100%;
+    }
+    
+    #extract .card.total:hover::before {
+        width:100%;
+    }
+}
 
 @media(max-width:700px){
     
@@ -188,7 +190,7 @@ ___________________*/
         border-radius: .313rem 0 0 .313rem; 
         transition: all .2s;
         top:0;
-        left: 0;
+        left:0;
     }
 
     #extract .card.expenses:before {
@@ -203,6 +205,10 @@ ___________________*/
         left:0;
     }
 
+    #extract .card.total:hover::before {
+        height:100%;
+    }
+
     #extract .card.total:before {
         content: ' '; 
         position:absolute;   
@@ -212,7 +218,7 @@ ___________________*/
         border-radius: .313rem 0 0 .313rem;  
         transition: all .2s;
         top:0;
-        left: 0;
+        left:0;
     }
 
     #extract .card.income:hover:before {

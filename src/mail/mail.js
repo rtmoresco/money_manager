@@ -18,8 +18,9 @@ function mailOptions(toEmail, name, token){
 module.exports = {
     sendMail(toEmail,name, token){
         smtpTransport.sendMail(mailOptions(toEmail, name, token), (error, response) => {
-            error ? console.log(error) : console.log(response);
+            error ? console.log(error) : console.log("Enviado >>>");
         })
+
         smtpTransport.close()
     }    
 }

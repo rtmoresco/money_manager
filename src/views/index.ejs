@@ -8,12 +8,73 @@
         <link rel="stylesheet" href="style\general.css"/>
         <link rel="stylesheet" href="style\extract.css"/>
         <link rel="stylesheet" href="style\transaction.css"/>
+        <link rel="stylesheet" href="style\style.css"/>
         <link rel="stylesheet" href="partials\modal.css"/>
+        <link rel="stylesheet" href="style\pagination.css"/>
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" 
         rel="stylesheet">
         <link rel="stylesheet" href="icon\css\font-awesome.min.css">
+        
+        <style type="text/css">				
+			
+            .axis path,
+            .axis line {
+                fill: none;
+                stroke: black;
+                shape-rendering: crispEdges;
+            }
+
+            .axisLinhas{
+                stroke-opacity:0.2;
+            }
+
+
+
+            .axis text {
+                font-family: sans-serif;
+                font-size: 15px;
+                stroke: black;
+            }
+
+            .receitas{
+                fill: green;
+            }
+
+            
+            .despesas{
+                fill: red;
+            }
+
+            /*.circle:hover{
+                fill:none;
+                stroke:yellow;
+                stroke-width:3;
+                r:10px;
+            }*/
+
+            .selecao {
+                fill:black;
+                fill-opacity:0;
+            }
+
+            .selecao:hover {
+                fill:black;
+                fill-opacity:0.2;
+            }
+
+
+            .rotuloBarras{
+                position:absolute;
+                line-height: 1.1em;
+                padding: 7px; 
+                margin: 3px;
+                background: #fefefe;
+                pointer-events: none;
+            }
+
+        </style>
     </head>
     <body>
         <header>
@@ -44,7 +105,7 @@
                         </a>
                     </li>
                     <li class="item">
-                        <a href="#" class="link-section desactive">
+                        <a href="#graphic" class="link-section desactive">
                             <i class="fa fa-bar-chart" aria-hidden="true"></i>
                             <spam>
                                 Gráfico
@@ -54,11 +115,11 @@
                 </ul>   
                 
                 <div class="login column grid-mobile-3">
-                      <a class="" href="/login"> Login </a>                                   
+                      <a class="" href="/disconnect"> Deslogar </a>                                   
                 </div>
         
         </header>
-        <main class="container">
+        <main id="teste" class="container">
             <section id="extract">                
                 <h2 class="sr-only">Extrato</h2>
 
@@ -67,8 +128,8 @@
                         Receita
                     </span>
                     <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                    <p class="">
-                        R$ <%= extract.income %>
+                    <p class="income-text">
+                        
                     </p>
                 </div>              
                 <div class="card total order-2">
@@ -76,8 +137,8 @@
                         Saldo
                     </span>
                     <i class="fa fa-usd" aria-hidden="true"></i>
-                    <p class="">
-                        R$ 200000000
+                    <p class="total-text">
+                        
                     </p>
                 </div> 
                 <div class="card expenses order-3">
@@ -85,18 +146,40 @@
                         Despesas
                     </span>
                     <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
-                    <p class="">
-                        R$ <%= extract.expenses %>
+                    <p class="expenses-text">
+                        
                     </p>
                 </div>  
             </section>
             <section id="transaction">
 
                 <h2>Transações</h2>
+               
+                <div class="action">    
 
-                <a class="add" href="register">
-                    <i class="fa fa-plus" aria-hidden="true"></i><span>Adicionar Valor</span>
-                </a>
+                    <div class="boxAction">
+                        <label>Ano</label>
+                        <select id="cbYAction">
+                            <!-- Sérá preenchido pela função javascript-->
+                        </select>
+                    </div>
+                    <div class="boxAction">
+                        <label>Mês</label>
+                        <select id="cbMAction">
+                            <!-- Sérá preenchido pela função javascript-->
+                        </select>
+                    </div>
+                    <div class="buttonAction">
+                        <button id="btnSearch">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                                        
+                    <a class="add" href="register">
+                        <i class="fa fa-plus" aria-hidden="true"></i><span>Adicionar Valor</span>
+                    </a>
+                </div>                
+
                 <% transactions.forEach((transactionPerMonth, index) => { %>
                 <div class="group-month-year">
                     <!--<i class="fa fa-plus-square" aria-hidden="true"></i>-->
@@ -228,15 +311,48 @@
                         </div>                         
                     </li>
                 </ul>-->
+                <div class="boxPag">
+                    <label>Itens por Pagina: </label>
+                    <div class="boxPagination">                        
+                        <select id="item_per_page" onchange="filter_requests()">
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                        </select>
+                    </div>
+                    <div class="pagination">
+                    </div>
+                </div>
             </section> 
             <section id="graphic">
+                <div id="graph">
+                </div>
                 <h2>Gráfico</h2>
+                <div class="selector">
+                    <div class="box">
+                        <select id="cbYears">
+                            <!-- Sérá preenchido pela função javascript-->
+                        </select>
+                    </div>
+                     <!-- 
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                  <b>AGRUPAR POR ANO</b>-->
+                </div>
+                <script src="https://d3js.org/d3.v4.min.js"></script>
+                <script type="text/javascript">
+                    
+                    
+                </script>
 
-                <div>Meu Gráfico</div>
+                
             </section>
-            <footer>
-                Meu rodapé
+            <footer>                
+                <button id="myBtn" onclick="topFunction()" title="Ir ao topo">Topo</button>
             </footer>   
+            
         </main>
 
 
@@ -250,7 +366,7 @@
                             <input type="hidden" name="modalId" id="modalId"/>               
                             <div class="button-group">
                                 <a href="#" class="btn-close" data-dismiss="modal">Cancelar</a>
-                                <button type="submit" form="form-delete-transaction" class="button"><span class="button__text">Delete</span></button>
+                                <button type="submit" form="form-delete-transaction" class="button"><span class="button__text">Deletar</span></button>
                             </div>
                         </form>                        
                     </div>
@@ -258,7 +374,11 @@
             </div>
         </div>
         
+        <script src="scripts/extract.js" defer type="module"></script>
+        <script src="scripts/graph.js" defer type="module"></script>
         <script src="scripts/index.js" defer type="module"></script>
         <script src="scripts/modal-delete.js" defer type="module"></script>
+        <script src="scripts/pagination.js" defer type="module"></script>
+        
     </body>   
 </html>

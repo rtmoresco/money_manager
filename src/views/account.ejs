@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Money Manager</title>
+        <link rel="stylesheet" href="style\style.css"/>
+        <link rel="stylesheet" href="style\general.css"/>
+        <link rel="stylesheet" href="style\account.css"/>
+        <link rel="stylesheet" href="partials\forms.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" 
+        rel="stylesheet">
+        <link rel="stylesheet" href="icon\css\font-awesome.min.css">
+    </head>
+    <body> 
+        <header class="cabecalho">            
+            <div class="grid-return">
+                <a class="return " href="index">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                </a>
+            </div>                 
+        </header>
+        <main class="container-account">
+            <div class="logo-group">
+                <img id="logo" class="column grid-mobile-1" src="images\logo.png" alt="Logo Money Manager">
+            </div>
+            
+            <div class="button-group">
+                <div class="button-group">
+                    <a href="<%= linkGoogle %>" class="button-google" type="submit">
+                        <i class="fa fa-google" aria-hidden="true"></i>Continue com o GOOGLE
+                    </a>
+                </div>
+            </div>
+            <div class="form-group">
+                <p> OU </p>
+                <form id="form-register-login" method="POST" action="/accountPage">
+                    <fieldset>
+                        <legend>
+                            Criar Conta de Acesso
+                        </legend>
+                        <div class="input-group">
+                            <label><span>Nome</span></label>
+                            <input type="text" id="name" name="name" value="<%= fields.name%>" />
+                            <i class="alert">
+                                <% errors.forEach((error) => { %>
+                                    <% if(error.name){ %> 
+                                        <%= error.name %>  
+                                    <% }%>                                   
+                                <% }) %>
+                            </i>
+                        </div>
+                        <div class="input-group">
+                            <label><span>E-mail</span></label>
+                            <input type="text" id="mail" name="mail" value="<%= fields.mail %>"/>
+                            <i id="alert-email">
+                                <% errors.forEach((error) => { %>
+                                    <% if(error.mail){ %> 
+                                        <%= error.mail %>  
+                                    <% }%>  
+
+                                    <% if(error.mailInvalid){ %> 
+                                        <%= error.mailInvalid %>  
+                                    <% }%> 
+
+                                    <% if(error.isExistsEmail){ %> 
+                                        <%= error.isExistsEmail %>  
+                                    <% }%>                                  
+                                <% }) %>
+                            </i> 
+                        </div>                        
+
+                        <div class="input-group">
+                            <label><span>Senha</span></label>
+                            <input type="password" id="password" name="password" />
+                            <i class="alert">
+                                <% errors.forEach((error) => { %>
+                                    <% if(error.password){ %> 
+                                        <%= error.password %>  
+                                    <% }%>                                   
+                                <% }) %>
+                            </i>
+                        </div>
+                        <div class="input-group">
+                            <label><span>Repetir Senha</span></label>
+                            <input type="password" id="password-confirm" name="password-confirm" />
+                            <i class="alert">
+                                <% errors.forEach((error) => { %>
+                                    <% if(error["password-confirm"]){ %> 
+                                        <%= error["password-confirm"]%>  
+                                    <% }%>                                   
+                                <% }) %>
+                            </i>
+                        </div>
+                        <div class="button-group">
+                            <button class="button" form="form-register-login" type="submit">Criar Conta</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div> 
+        </main>
+        <script src="scripts/account.js" defer type="module"></script>
+    </body>
+</html>

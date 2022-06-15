@@ -1,10 +1,12 @@
 const lateralMenu = document.querySelector(".open-account")
 const hambuguer = document.querySelector(".nav-icon")
+const authentication = document.querySelector(".authentication")
 hambuguer.addEventListener("click", displayMobileMenu)
 
 function displayMobileMenu(){
     lateralMenu.classList.toggle("active")  
     hambuguer.classList.toggle("active")
+    authentication.classList.toggle("inactive")
 }
 
 const iconMaximizeList = document.querySelectorAll(".show-data")

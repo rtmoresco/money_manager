@@ -38,14 +38,14 @@ const dados = [
 
 
 module.exports = {
-    async get(){
+    async get(userid){
+
         const db = await Database();
 
-        const transactions = await db.all(`SELECT * FROM transactions`);
+        const transactions = await db.all(`SELECT * FROM transactions WHERE id_user = "${userid}"`);
 
         await db.close();
-
-
+        
         return transactions.map((transaction) => ({
             id: transaction.id,
             description: transaction.description,
@@ -60,12 +60,14 @@ module.exports = {
         const db = await Database()
 
         await db.run(`INSERT INTO transactions (
+        id_user,
         description,
         value_transaction,
         date,
         type,
         category
         ) VALUES (
+          "${newTransaction.idUser}",
           "${newTransaction.description}",
           "${newTransaction["value-transaction"]}",
           "${newTransaction.date}",

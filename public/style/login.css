@@ -36,6 +36,10 @@
     top:8rem;
 }
 
+.authentication a{
+    text-decoration: none;
+}
+
 /* Formulário 
 _______________*/
 
@@ -51,8 +55,15 @@ _______________*/
     padding-left: 1rem;
 }
 
-.grid-form{
+.button-group-google{
     grid-row: 2;
+    grid-column: 1;
+    align-self: flex-start;
+    justify-self: center;
+}
+
+.grid-form{
+    grid-row: 3;
     grid-column: 1;
     align-self: flex-start;
     justify-self: center;
@@ -82,6 +93,32 @@ _____________*/
     margin-left: 25%;
     color: red;
     font-size: 0.8rem;;
+}
+
+#form-login .alert{
+    position: absolute;
+    margin-top: 3rem;
+    margin-left: 10%;
+    color: red;
+    font-size: 0.8rem;;
+}
+#form-login .input-group{
+    width: 80%;
+}
+
+/* Botão Google
+___________________*/
+
+.button-google{
+    padding: 0.25rem;
+    background-color: #d23c2e;
+    color: white;
+    border: none;
+    margin:1rem;
+}
+
+.button-google i{
+    padding: 0.25rem;
 }
 
 @media(max-width:700px){
@@ -135,13 +172,14 @@ _____________*/
   
     }
 
-    .button-google{
-        display: none;
-    }
 
     .open-account.active{
         height: 100vh;
         visibility:visible;        
+    }
+
+    .authentication.inactive{
+        display: none;
     }
 
     .open-account.active #form-register-login{
@@ -150,6 +188,7 @@ _____________*/
 
     .open-account.active  .button-google{
         display: block; 
+        text-decoration: none;
     }
 
     .open-account .mobile{
@@ -175,6 +214,7 @@ _____________*/
         width:100%;
     }
 
+    
     #form-register-login .input-group{
         width:80%;
     }
@@ -191,17 +231,7 @@ _____________*/
         margin-right: 0;
     }
 
-    .button-google{
-        padding: 0.25rem;
-        background-color: #d23c2e;
-        color: white;
-        border: none;
-        margin:1rem;
-    }
-
-    .button-google i{
-        padding: 0.25rem;
-    }
+    
 
 }
 

@@ -6,6 +6,7 @@ const initDb = {
 
         await db.exec(`CREATE TABLE transactions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_user INTEGER, 
             description TEXT,
             value_transaction FLOAT,
             date DATETIME,
@@ -13,7 +14,7 @@ const initDb = {
             category TEXT
         )`)
 
-        await db.run(`INSERT INTO transactions (
+        /*await db.run(`INSERT INTO transactions (
             description, 
             value_transaction, 
             date, 
@@ -26,17 +27,26 @@ const initDb = {
                 "Receita",
                 "Alimentação"
             );
-        `)
+        `)*/
 
 
         await db.exec(`CREATE TABLE users (
-            mail TEXT PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            mail TEXT UNIQUE,
             name TEXT,
             token TEXT,
             password TEXT,
-            status text,
-            id_transaction INTEGER
+            type TEXT,
+            status TEXT
         )`)
+
+
+        /*await db.exec(`CREATE TABLE google (
+            mail TEXT PRIMARY KEY,
+            id TEXT,
+            token text
+            id_transaction INTEGER
+        )`)*/
 
 
         await db.close()

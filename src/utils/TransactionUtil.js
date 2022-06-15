@@ -31,13 +31,17 @@ function reducePerMonth(dates, data){
     ,[])
 }
 
+function compare(a,b) { //Orgaiza a data em ordem decrescente
+    return new Date("01-" + b) - new Date("01-" + a);
+}
+
 module.exports = {
     extractDataPerMonth(data){
         let dates = listOfMonths(data)
 
-        dates = convertObjectToList(dates)
-    
-        const listPerMonth = reducePerMonth(dates.sort(), data)
+        dates = convertObjectToList(dates)      
+       
+        const listPerMonth = reducePerMonth(dates.sort(compare), data)
       
         return listPerMonth
     },    

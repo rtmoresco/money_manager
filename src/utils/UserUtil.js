@@ -30,7 +30,7 @@ module.exports = {
         return decrypt.final(encryptionData.codification)
     },
     sendEmail(email, name, token){
-        mail.sendMail(email, name, token)
+        return mail.sendMail(email, name, token)
     },
     generateToken(){
         const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -42,11 +42,17 @@ module.exports = {
 
         return token        
     },
-    validateField(user){
+    validateField(user, req = null){
         const error = []
 
         if(!user.mail || typeof user.mail == undefined || user.mail == null){
             error.push({mail: "* Obrigatório preenchimento do Email!"})
+        }
+
+        const regex  = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        const valueFormat = user.mail.match(regex)        
+        if(!valueFormat){
+            error.push({mailInvalid: "Email Inválido!"})
         }
 
         if(user.isExistsEmail > 0){
@@ -61,7 +67,7 @@ module.exports = {
             error.push({password: "* Obrigatório preencher a senha (Minímo 6 didgitos)!"})
         }
 
-        if(!comparePassword(user.password, user.confirmationPassword)){
+        if(!comparePassword(user.password, user.passwordConfirm)){
             error.push({"password-confirm": "* Senha de confirmação diferente !"})
         }
 

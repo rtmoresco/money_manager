@@ -171,7 +171,7 @@ _______________________________*/
         font-size: 1.5rem;
         padding: 0.20rem 0.25rem 0.20rem 0.5rem;
         background-color:var(--blue-ligth);
-        color:var(var(--purple-ligth));
+        color:var(--purple-ligth);
         text-decoration: none;
         border-radius: 0.20rem;
         border:1px solid gray;
@@ -212,7 +212,7 @@ _______________________________*/
         font-size: 1rem;
         padding: 0.25rem 0.25rem 0.25rem 0.5rem;
         background-color:var(--blue-ligth);
-        color:var(var(--purple-ligth));
+        color:var(--purple-ligth);
         text-decoration: none;
         border-radius: 0.20rem;
         border:1px solid gray;
@@ -228,31 +228,27 @@ _______________________________*/
 
 @media(max-width:450px){
 
-    #transaction .actions .delete {
-        border:none;       
+    #transaction .actions  {     
+        padding-left: 2rem;
+    }
+
+    #transaction .actions .delete {     
         color:var(--red);
+        margin-top: 0.5rem;
+        padding: 0.25;
     }
 
     #transaction .actions .edit{
-        font-size: 0.5rem;
         color:var(--purple-ligth);
         text-decoration: none;
         border:none;
         margin-bottom: 1rem;
     }
-
-    #transaction .actions .edit:after{
-        content: " ";
-        display:block;
-        position: relative;
-        width: 100%;
-        padding-top: 0.8rem;
-        margin-bottom: 0.5rem;
-        border-bottom: 1px solid black;
-    }
     
 
+  
+
     #transaction .actions .edit i,  #transaction .actions .delete i{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }

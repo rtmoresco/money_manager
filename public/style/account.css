@@ -1,0 +1,87 @@
+.container-account {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+
+}
+
+.button-group .button{
+    display: block;
+    padding: 0.6rem;
+    border:none;
+    background-color: var(--green);
+    color: var(--blue-ligth);
+    width: 100%;
+}
+
+
+.grid-return{
+    grid-row: 1;
+    grid-column: 1;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    position: fixed;
+}
+
+/* Alerta
+_____________*/
+
+#alert-email, .alert{
+    position: absolute;
+    margin-top: 3rem;
+    margin-left: 18%;
+    color: red;
+    font-size: 1rem;;
+}
+
+ /* Form de cadastro de usuário
+    ___________________________________*/
+
+    .form-group {
+        width: 70%;
+        margin: auto;
+    }
+    .form-register-login{
+        width: 90%;
+    }
+
+    #form-register-login{
+        width:100%;
+    }
+
+
+    #form-register-login .input-group{
+        width:80%;
+    }
+    #form-register-login input{
+        width:100%;
+    }
+
+    #form-register-login label{
+        width:50%;
+
+    }
+
+    #form-register-login span{
+        margin-right: 0;
+    }
+
+    .button-google{
+        padding: 0.25rem;
+        background-color: #d23c2e;
+        color: white;
+        border: none;
+        margin:1rem;
+    }
+
+    .button-google i{
+        padding: 0.25rem;
+    }
+
+    .button-group a{
+        text-decoration: none;
+    }
+
+  
+
+
